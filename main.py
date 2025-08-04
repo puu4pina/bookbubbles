@@ -6,7 +6,7 @@ import numpy as np
 
 def main():
     st.subheader(":red[BookBubbles]: Visualize the subjects you read.")
-    st.text("""This app uses Open Library's API to search for a book with matching title and author. If there's a match, the subjects of the book are returned and stored. The app creates a bubble chart to visualize the stored subjects. The more books a subject appears in, the bigger the its bubble.""")
+    st.text("""This app uses Open Library's API to search for a book with matching title and author. If there's a match, the subjects of the book are returned and stored. The app creates a bubble chart to visualize the stored subjects. The more books a subject appears in, the bigger its bubble.""")
     st.markdown("""
     1. Type a book title and the author's name. Click 'Search'. (English works best)
     2. When there's a match, you get a printout. Subjects will be stored in memory.
