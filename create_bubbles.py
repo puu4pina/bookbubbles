@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import streamlit as st
 
-
+# Create bubble chart class
 class BubbleChart:
     def __init__(self, area, bubble_spacing=0):
         """
@@ -135,6 +135,7 @@ class BubbleChart:
             ax.text(*self.bubbles[i, :2], labels[i],
                     horizontalalignment='center', verticalalignment='center')
 
+# Function to plot bubble chart
 def create_bubble_chart(category_dictionary: dict):
     bubble_chart = BubbleChart(area=category_dictionary['share'],
                            bubble_spacing=0.02)
@@ -149,6 +150,7 @@ def create_bubble_chart(category_dictionary: dict):
     #ax.set_title(' ', size=9)
     st.pyplot(fig)
 
+# Function to create different colors for bubble chart bubbles
 def create_hex_color_list(items: list):
     red_channel = 0
     color_list = []
@@ -163,6 +165,7 @@ def create_hex_color_list(items: list):
 
     return color_list
 
+# Create bubble chart if only one bubble
 def create_one_bubble(category_string: str):
     #plt.rc('font', size=8)
     circle = plt.Circle((0.5, 0.5), 0.4, color='#00c1ff')

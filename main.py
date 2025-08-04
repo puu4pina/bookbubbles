@@ -36,6 +36,7 @@ def main():
     if "proxy" not in st.session_state:
         st.session_state.proxy = False
 
+    # Callback function to pass subject if user gives an input
     def pass_subject():
         st.session_state.input = st.session_state.user_input
         st.session_state.proxy = True
@@ -52,6 +53,8 @@ def main():
             st.session_state.input = ""
             #st.session_state.input = False
 
+    # Add controls to make sure text fields aren't empty.
+    # Add functionality to fetch book subjects
     if search_button and len(book_name) == 0 or search_button and len(author_name) == 0 or search_button and book_name.isspace() or search_button and author_name.isspace():
         st.write("Add a book title and author name. Example: _return of the king_ and _Tolkien_")
     if search_button and len(book_name) != 0 and len(author_name) != 0 and not book_name.isspace() and not author_name.isspace():
@@ -84,11 +87,12 @@ def main():
                         index = st.session_state.categories.index(item)
                         st.session_state.share[index] += 1
 
-
+            # Ask for subject if there was none in the database
             elif found_categories is False:
                 st.session_state.input= st.text_input("No found subjects. Give a subject: ", key="user_input")
                 st.button("Add subject", type="secondary", on_click=pass_subject)
 
+    # Visualize the subjects
     if visualize_button:
         if len(st.session_state.categories) < 1:
             st.write("Please search books.")
@@ -108,6 +112,7 @@ def main():
             else:
                 create_bubble_chart(categories)
 
+    # Clear the session memory
     if clear_button:
         for key in st.session_state.keys():
             del st.session_state[key]
