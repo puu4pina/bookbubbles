@@ -2,7 +2,9 @@
 
 This app uses Open Library API to fetch subjects of a book and then visualizes them in a bubble chart. The more frequent the subject, the bigger its bubble. 
 See: 
+
 https://openlibrary.org/developers/api
+
 https://matplotlib.org/stable/gallery/misc/packed_bubbles.html
 
 
